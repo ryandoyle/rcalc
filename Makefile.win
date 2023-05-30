@@ -1,0 +1,30 @@
+# Project: rcalc
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = rcalc.o $(RES)
+LINKOBJ  = rcalc.o $(RES)
+LIBS =  -L"C:/DEV-CPP/lib" -mwindows  
+INCS =  -I"C:/DEV-CPP/include" 
+CXXINCS =  -I"C:/DEV-CPP/lib/gcc/mingw32/3.4.2/include"  -I"C:/DEV-CPP/include/c++/3.4.2/backward"  -I"C:/DEV-CPP/include/c++/3.4.2/mingw32"  -I"C:/DEV-CPP/include/c++/3.4.2"  -I"C:/DEV-CPP/include" 
+BIN  = rcalc.exe
+CXXFLAGS = $(CXXINCS)   -g
+CFLAGS = $(INCS)   -g
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before rcalc.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "rcalc.exe" $(LIBS)
+
+rcalc.o: rcalc.c
+	$(CC) -c rcalc.c -o rcalc.o $(CFLAGS)
